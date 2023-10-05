@@ -4,7 +4,7 @@ using UnityEngine;
 public class AsteroidCollisionTracker : MonoBehaviour
 {
     public AsteroidSpawner asteroidSpawner;
-    public scoreManager scoreManager; // Asegúrate de que la variable tenga el mismo nombre (mayúsculas y minúsculas) que el script ScoreManager
+    public scoreManager scoreManager; // Asegï¿½rate de que la variable tenga el mismo nombre (mayï¿½sculas y minï¿½sculas) que el script ScoreManager
 
     private int asteroidsDestroyed = 0;
 
@@ -23,7 +23,8 @@ public class AsteroidCollisionTracker : MonoBehaviour
 
             // Verifica si se han destruido suficientes asteroides para ganar.
             if (asteroidsDestroyed >= asteroidSpawner.asteroidsNeededToWin)
-            {
+            {            
+                scoreManager.Instance.SaveScore();
                 // El jugador ha ganado, carga la escena de victoria.
                 SceneManager.LoadScene("WinScene");
             }

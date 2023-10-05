@@ -4,10 +4,10 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    public Image[] lifeImages; // Asigna las imágenes de vida desde el Inspector.
-    private int lives = 3; // Cantidad de vidas del jugador (puedes cambiar esto según tu juego).
+    public Image[] lifeImages; // Asigna las imï¿½genes de vida desde el Inspector.
+    private int lives = 3; // Cantidad de vidas del jugador (puedes cambiar esto segï¿½n tu juego).
 
-    // Añade una referencia al Canvas que contiene las imágenes de vida.
+    // Aï¿½ade una referencia al Canvas que contiene las imï¿½genes de vida.
     public GameObject lifeCanvas;
     public int asteroidsNeededToWin = 30; // Cantidad necesaria de asteroides para ganar
 
@@ -15,24 +15,24 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        // Puedes encontrar el Canvas por su nombre o etiqueta, dependiendo de tu configuración.
+        // Puedes encontrar el Canvas por su nombre o etiqueta, dependiendo de tu configuraciï¿½n.
         lifeCanvas = GameObject.Find("LifeCanvas");
 
-        // Luego, puedes obtener las imágenes de vida desde el Canvas.
+        // Luego, puedes obtener las imï¿½genes de vida desde el Canvas.
         lifeImages = lifeCanvas.GetComponentsInChildren<Image>();
     }
 
-    // Método para actualizar las imágenes de vida en el Canvas.
+    // Mï¿½todo para actualizar las imï¿½genes de vida en el Canvas.
     void UpdateLifeImages()
     {
         for (int i = 0; i < lifeImages.Length; i++)
         {
-            // Activa o desactiva las imágenes de vida según la cantidad actual de vidas.
+            // Activa o desactiva las imï¿½genes de vida segï¿½n la cantidad actual de vidas.
             lifeImages[i].gameObject.SetActive(i < lives);
         }
     }
 
-    // Método para reducir una vida cuando el jugador colisiona con un enemigo, por ejemplo.
+    // Mï¿½todo para reducir una vida cuando el jugador colisiona con un enemigo, por ejemplo.
     public void ReduceLife()
     {
         if (lives > 0)
@@ -42,12 +42,13 @@ public class GameManager : MonoBehaviour
 
             if (lives <= 0)
             {
+                scoreManager.Instance.SaveScore();
                 SceneManager.LoadScene("LooseScene");
             }
         }
     }
 
-    // Método para aumentar una vida cuando el jugador recoge un power-up, por ejemplo.
+    // Mï¿½todo para aumentar una vida cuando el jugador recoge un power-up, por ejemplo.
     public void IncreaseLife()
     {
         if (lives < lifeImages.Length)

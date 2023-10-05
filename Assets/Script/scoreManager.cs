@@ -7,12 +7,12 @@ using UnityEngine.UI;
 public class scoreManager : MonoBehaviour
 {
     public Text scoreText;
-    public int score = 0; // Variable para llevar un registro de la puntuación
+    public int score = 0; // Variable para llevar un registro de la puntuaciï¿½n
     public static scoreManager Instance { get; private set; }
 
     private void Awake()
     {
-        // Asegúrate de que solo haya una instancia de ScoreManager en la escena
+        // Asegï¿½rate de que solo haya una instancia de ScoreManager en la escena
         if (Instance == null)
         {
             Instance = this;
@@ -25,29 +25,35 @@ public class scoreManager : MonoBehaviour
     }
     private void Start()
     {
-        // Asegúrate de configurar la referencia al Texto en tu inspector
+        // Asegï¿½rate de configurar la referencia al Texto en tu inspector
         if (scoreText == null)
         {
-            Debug.LogError("No se ha asignado el Texto de puntuación en el inspector.");
+            Debug.LogError("No se ha asignado el Texto de puntuaciï¿½n en el inspector.");
         }
 
-        // Inicializa la puntuación en 0 al comenzar el juego
+        // Inicializa la puntuaciï¿½n en 0 al comenzar el juego
         UpdateScoreDisplay();
     }
 
-    // Método para sumar puntos
+    // Mï¿½todo para sumar puntos
     public void AddPoints(int pointsToAdd)
     {
         score += pointsToAdd;
         UpdateScoreDisplay();
     }
 
-    // Método para actualizar el texto de puntuación en la UI
+    // Mï¿½todo para actualizar el texto de puntuaciï¿½n en la UI
     private void UpdateScoreDisplay()
     {
         if (scoreText != null)
         {
-            scoreText.text = "Puntuación: " + score;
+            scoreText.text = "Puntuaciï¿½n: " + score;
         }
     }
+    public void SaveScore()
+      {
+    PlayerPrefs.SetInt("FinalScore", score);
+    PlayerPrefs.Save();
+      }
+
 }
