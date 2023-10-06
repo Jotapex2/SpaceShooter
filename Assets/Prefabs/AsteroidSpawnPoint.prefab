@@ -48,7 +48,7 @@ MonoBehaviour:
   asteroidPrefab: {fileID: 8977664173385158735, guid: 372b19229eb816747b6784ad2602cdd6, type: 3}
   spawnPoint: {fileID: 330837556164630797}
   spawnInterval: 3
-  asteroidsNeededToWin: 30
+  asteroidsNeededToWin: 50
 --- !u!114 &1118870276720951702
 MonoBehaviour:
   m_ObjectHideFlags: 0

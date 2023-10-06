@@ -9,9 +9,7 @@ public class GameManager : MonoBehaviour
 
     // A�ade una referencia al Canvas que contiene las im�genes de vida.
     public GameObject lifeCanvas;
-    public int asteroidsNeededToWin = 30; // Cantidad necesaria de asteroides para ganar
-
-    private int asteroidsDestroyed = 0;
+  
 
     private void Start()
     {
