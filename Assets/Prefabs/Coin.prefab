@@ -100,6 +100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explosionSound: {fileID: 8300000, guid: a023df5575724674aa55402f0ae6c615, type: 3}
+  explosionParticles: {fileID: 231824966676273644, guid: b0933222d5157c94f966f6cc9958884f, type: 3}
 --- !u!50 &194145976948548899
 Rigidbody2D:
   serializedVersion: 4

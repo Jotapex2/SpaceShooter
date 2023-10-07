@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class AsteroidMovement : MonoBehaviour
 {
-    public ParticleSystem explosionParticles; // Referencia al sistema de partículas de explosión
-    public AudioClip explosionSound; // Opcional: sonido de explosión
+    public ParticleSystem explosionParticles; // Referencia al sistema de partï¿½culas de explosiï¿½n
+    public AudioClip explosionSound; // Opcional: sonido de explosiï¿½n
 
     private float speed; // Velocidad de descenso del asteroide
 
@@ -14,7 +14,7 @@ public class AsteroidMovement : MonoBehaviour
         // Genera una velocidad aleatoria entre 1 y 4
         speed = Random.Range(1f, 4f);
 
-        // Genera una posición X aleatoria en la parte superior de la cámara
+        // Genera una posiciï¿½n X aleatoria en la parte superior de la cï¿½mara
         float randomX = Random.Range(Camera.main.ViewportToWorldPoint(new Vector2(0, 1)).x, Camera.main.ViewportToWorldPoint(new Vector2(1, 1)).x);
         transform.position = new Vector3(randomX, Camera.main.ViewportToWorldPoint(new Vector2(1, 1)).y, 0);
     }
@@ -24,7 +24,7 @@ public class AsteroidMovement : MonoBehaviour
         // Desciende el asteroide
         transform.Translate(Vector3.down * speed * Time.deltaTime);
 
-        // Verifica si el asteroide está fuera de la vista de la cámara
+        // Verifica si el asteroide estï¿½ fuera de la vista de la cï¿½mara
         if (!IsVisibleFromCamera())
         {
             // Destruye el asteroide
@@ -34,7 +34,7 @@ public class AsteroidMovement : MonoBehaviour
 
     bool IsVisibleFromCamera()
     {
-        // Verifica si el objeto está dentro de la vista de la cámara
+        // Verifica si el objeto estï¿½ dentro de la vista de la cï¿½mara
         Plane[] planes = GeometryUtility.CalculateFrustumPlanes(Camera.main);
         return GeometryUtility.TestPlanesAABB(planes, GetComponent<Renderer>().bounds);
     }
@@ -45,17 +45,31 @@ public class AsteroidMovement : MonoBehaviour
 
         if (tag == "bullet" || tag == "Player")
         {
-            // Reproduce el sonido de explosión 
+            // Reproduce el sonido de explosiï¿½n 
             if (explosionSound != null)
             {
                 AudioSource.PlayClipAtPoint(explosionSound, transform.position);
             }
 
-            // Instancia el sistema de partículas de explosión
-            if (explosionParticles != null)
-            {
-                Instantiate(explosionParticles, transform.position, Quaternion.identity);
-            }
+// Instancia el sistema de partÃ­culas de explosiÃ³n
+if (explosionParticles != null)
+{
+    ParticleSystem explosion = Instantiate(explosionParticles, transform.position, Quaternion.identity);
+
+    // ObtÃ©n el componente Renderer del sistema de partÃ­culas
+    Renderer particleRenderer = explosion.GetComponent<Renderer>();
+
+    if (particleRenderer != null)
+    {
+        // Define el Sorting Layer que deseas para el sistema de partÃ­culas
+        particleRenderer.sortingLayerName = "Explosion"; 
+    }
+    else
+    {
+        Debug.LogWarning("El objeto de partÃ­culas no tiene un componente Renderer.");
+    }
+}
+
 
             // Destruye el asteroide
             Destroy(gameObject);

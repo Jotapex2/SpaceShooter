@@ -6,16 +6,18 @@ using UnityEngine.SceneManagement;
 public class CoinMovement : MonoBehaviour
 {
     private float speed; // Velocidad de movimiento de la moneda
-    private bool collected = false; // Variable para evitar la recolección múltiple
-    public AudioClip explosionSound; // Opcional: sonido de explosión
+    private bool collected = false; // Variable para evitar la recolecciï¿½n mï¿½ltiple
+    public AudioClip explosionSound; // Opcional: sonido de explosiï¿½n
+
+    public ParticleSystem explosionParticles; // Referencia al sistema de partï¿½culas de explosiï¿½n
 
 
     void Start()
     {
-        // Genera una velocidad aleatoria entre 1 y 4 (ajusta según sea necesario)
+        // Genera una velocidad aleatoria entre 1 y 4 (ajusta segï¿½n sea necesario)
         speed = Random.Range(1f, 4f);
 
-        // Genera una posición X aleatoria en la parte superior de la cámara
+        // Genera una posiciï¿½n X aleatoria en la parte superior de la cï¿½mara
         float randomX = Random.Range(Camera.main.ViewportToWorldPoint(new Vector2(0, 1)).x, Camera.main.ViewportToWorldPoint(new Vector2(1, 1)).x);
         transform.position = new Vector3(randomX, Camera.main.ViewportToWorldPoint(new Vector2(1, 1)).y, 0);
     }
@@ -25,7 +27,7 @@ public class CoinMovement : MonoBehaviour
         // Mueve la moneda hacia abajo
         transform.Translate(Vector3.down * speed * Time.deltaTime);
 
-        // Verifica si la moneda está fuera de la vista de la cámara
+        // Verifica si la moneda estï¿½ fuera de la vista de la cï¿½mara
         if (!IsVisibleFromCamera())
         {
             // Destruye la moneda
@@ -35,7 +37,7 @@ public class CoinMovement : MonoBehaviour
 
     bool IsVisibleFromCamera()
     {
-        // Verifica si el objeto está dentro de la vista de la cámara
+        // Verifica si el objeto estï¿½ dentro de la vista de la cï¿½mara
         Plane[] planes = GeometryUtility.CalculateFrustumPlanes(Camera.main);
         return GeometryUtility.TestPlanesAABB(planes, GetComponent<Renderer>().bounds);
     }
@@ -47,11 +49,30 @@ public class CoinMovement : MonoBehaviour
             // Suma 10 puntos al score
             scoreManager.Instance.AddPoints(10);
 
-            // Reproduce el sonido de explosión 
+            // Reproduce el sonido de explosiï¿½n 
             if (explosionSound != null)
             {
                 AudioSource.PlayClipAtPoint(explosionSound, transform.position);
             }
+
+            // Instancia el sistema de partÃ­culas de explosiÃ³n
+if (explosionParticles != null)
+{
+    ParticleSystem explosion = Instantiate(explosionParticles, transform.position, Quaternion.identity);
+
+    // ObtÃ©n el componente Renderer del sistema de partÃ­culas
+    Renderer particleRenderer = explosion.GetComponent<Renderer>();
+
+    if (particleRenderer != null)
+    {
+        // Define el Sorting Layer que deseas para el sistema de partÃ­culas
+        particleRenderer.sortingLayerName = "Explosion"; 
+    }
+    else
+    {
+        Debug.LogWarning("El objeto de partÃ­culas no tiene un componente Renderer.");
+    }
+}
 
             // Destruye la moneda
             Destroy(gameObject);
@@ -59,7 +80,7 @@ public class CoinMovement : MonoBehaviour
     }
     private void OnBecameInvisible()
     {
-        // Destruye la bala cuando sale de la vista de la cámara
+        // Destruye la bala cuando sale de la vista de la cï¿½mara
         Destroy(gameObject);
     }
 }
