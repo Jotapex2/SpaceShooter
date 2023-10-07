@@ -11,6 +11,6 @@ public class DisplayScore : MonoBehaviour
         int finalScore = PlayerPrefs.GetInt("FinalScore", 0);
 
         // Muestra el puntaje en el objeto de texto
-        scoreText.text = "Puntaje Final: " + finalScore;
+        scoreText.text = "Final Score: " + finalScore;
     }
 }

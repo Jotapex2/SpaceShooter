@@ -47,7 +47,7 @@ public class scoreManager : MonoBehaviour
     {
         if (scoreText != null)
         {
-            scoreText.text = "Puntuaci�n: " + score;
+            scoreText.text = "Score: " + score;
         }
     }
     public void SaveScore()
