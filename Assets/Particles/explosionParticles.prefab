@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 4553648209399177301}
   - component: {fileID: 2414505808664353549}
   - component: {fileID: 4069453342506058579}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: explosionParticles
-  m_TagString: Untagged
+  m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
