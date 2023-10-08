@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 330837556164630797}
   - component: {fileID: 1665832368209891713}
   - component: {fileID: 1118870276720951702}
+  - component: {fileID: 1690545509199031199}
   m_Layer: 0
   m_Name: AsteroidSpawnPoint
   m_TagString: Untagged
@@ -64,3 +65,18 @@ MonoBehaviour:
   coinPrefab: {fileID: 3331549757530986825, guid: 916ab8978ec1f1544aab9c32c1678eff, type: 3}
   spawnPoint: {fileID: 330837556164630797}
   spawnInterval: 5
+--- !u!114 &1690545509199031199
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6723308611864366730}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e38e21cec4a77542b3919de115458f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EnemyAPrefab: {fileID: 8203930227047745162, guid: 472b57112526e9648b152cd24047c7e1, type: 3}
+  spawnPoint: {fileID: 330837556164630797}
+  spawnInterval: 25

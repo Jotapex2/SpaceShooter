@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyController : MonoBehaviour
@@ -12,13 +13,13 @@ public class EnemyController : MonoBehaviour
 
     void Start()
     {
-        // Inicializa el tiempo del prÃ³ximo disparo
+        // Inicializa el tiempo del próximo disparo
         nextFireTime = Time.time + 1f / fireRate;
     }
 
     void Update()
     {
-        // Mueve el enemigo de izquierda a derecha dentro de la cÃ¡mara
+        // Mueve el enemigo de izquierda a derecha dentro de la cámara
         float horizontalMovement = Mathf.Sin(Time.time * speed);
         transform.Translate(Vector3.right * horizontalMovement * Time.deltaTime);
 
@@ -26,7 +27,7 @@ public class EnemyController : MonoBehaviour
         if (Time.time >= nextFireTime)
         {
             Shoot(); // Dispara
-            nextFireTime = Time.time + 1f / fireRate; // Actualiza el tiempo del prÃ³ximo disparo
+            nextFireTime = Time.time + 1f / fireRate; // Actualiza el tiempo del próximo disparo
         }
     }
 
@@ -36,4 +37,3 @@ public class EnemyController : MonoBehaviour
         Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
     }
 }
-s
