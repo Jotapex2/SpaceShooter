@@ -34,13 +34,6 @@ public class AsteroidSpawner : MonoBehaviour
 
             asteroidsSpawned += 2; // Incrementa el contador de asteroides generados.
 
-           /*
-            if (asteroidsSpawned >= asteroidsNeededToWin)
-            {
-                // El jugador ha ganado, carga la escena de victoria.
-                SceneManager.LoadScene("WinScene");
-            */
-
             // Espera el intervalo de spawn.
             yield return new WaitForSeconds(spawnInterval);
         }

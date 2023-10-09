@@ -139,6 +139,7 @@ PlayerSettings:
   preloadedAssets:
   - {fileID: -2099030512812176288, guid: aca4a84a306bdc441afa4be08f45101b, type: 2}
   - {fileID: 11400000, guid: bb389a9a8b5920246838ff67932eba7b, type: 2}
+  - {fileID: 11400000, guid: d79f6c9385d48e541bc666495e13a4c7, type: 2}
   metroInputSource: 0
   wsaTransparentSwapchain: 0
   m_HolographicPauseOnTrackingLoss: 1
@@ -263,8 +264,8 @@ PlayerSettings:
   AndroidTargetDevices: 0
   AndroidSplashScreenScale: 0
   androidSplashScreen: {fileID: 0}
-  AndroidKeystoreName: C:/Users/juanp/Solar System.keystore
-  AndroidKeyaliasName: jotapex
+  AndroidKeystoreName: '{inproject}: SpaceShooterKeystore.keystore'
+  AndroidKeyaliasName: "juan pablo gonz\xE1lez"
   AndroidEnableArmv9SecurityFeatures: 0
   AndroidBuildApkPerCpuArchitecture: 0
   AndroidTVCompatibility: 0

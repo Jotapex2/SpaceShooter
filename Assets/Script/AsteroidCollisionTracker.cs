@@ -18,7 +18,7 @@ public class AsteroidCollisionTracker : MonoBehaviour
 
             if (scoreManager != null)
             {
-                scoreManager.score += 10; // Suma 10 puntos por cada asteroide destruido
+                scoreManager.score += 20; // Suma 10 puntos por cada asteroide destruido
             }
 
             // Verifica si se han destruido suficientes asteroides para ganar.
