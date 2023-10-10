@@ -12,7 +12,7 @@ public class AsteroidMovement : MonoBehaviour
     void Start()
     {
         // Genera una velocidad aleatoria entre 1 y 4
-        speed = Random.Range(1f, 4f);
+        speed = Random.Range(3f, 7f);
 
         // Genera una posici�n X aleatoria en la parte superior de la c�mara
         float randomX = Random.Range(Camera.main.ViewportToWorldPoint(new Vector2(0, 1)).x, Camera.main.ViewportToWorldPoint(new Vector2(1, 1)).x);

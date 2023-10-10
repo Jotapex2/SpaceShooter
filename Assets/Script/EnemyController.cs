@@ -10,6 +10,14 @@ public class EnemyController : MonoBehaviour
     public Transform firePoint; // Punto de disparo de las balas
     public ParticleSystem explosionParticles; // Referencia al sistema de part�culas de explosi�n
     public AudioClip explosionSound; // Opcional: sonido de explosi�n
+    public float invisibilityDuration = 10.0f; // Duración de la invisibilidad en segundos
+    private bool isInvincible = false; // Indicador de invisibilidad
+
+    // Referencia al componente SpriteRenderer del jugador
+    private SpriteRenderer EnemigoARenderer;
+
+    // Parámetros del parpadeo
+    private float blinkInterval = 0.2f; // Intervalo entre parpadeos (en segundos)
 
     private float nextFireTime;
 
@@ -17,6 +25,37 @@ public class EnemyController : MonoBehaviour
     {
         // Inicializa el tiempo del próximo disparo
         nextFireTime = Time.time + 1f / fireRate;
+    }
+    private IEnumerator ActivateInvisibility()
+    {
+        isInvincible = true;
+
+        // Calcula la cantidad de parpadeos
+        int blinkCount = Mathf.FloorToInt(invisibilityDuration / (2 * blinkInterval));
+
+        // Realiza el parpadeo
+        for (int i = 0; i < blinkCount; i++)
+        {
+            // Hace que el objeto sea visible
+            EnemigoARenderer.enabled = true;
+
+            // Espera el intervalo de parpadeo
+            yield return new WaitForSeconds(blinkInterval);
+
+            // Hace que el objeto sea invisible
+            EnemigoARenderer.enabled = false;
+
+            // Espera el intervalo de parpadeo nuevamente
+            yield return new WaitForSeconds(blinkInterval);
+        }
+
+        // Asegura que el objeto sea visible al final de la invisibilidad
+        EnemigoARenderer.enabled = true;
+
+        isInvincible = false;
+        // Restaura cualquier efecto de invisibilidad que hayas configurado.
+
+
     }
 
     void Update()
