@@ -8,7 +8,6 @@ public class GrandAsteroidCollisionTracker : MonoBehaviour
     public AsteroidSpawner asteroidSpawner;
     public scoreManager scoreManager; // Aseg�rate de que la variable tenga el mismo nombre (may�sculas y min�sculas) que el script ScoreManager
     public GameObject asteroidPrefab; // Prefab del asteroide 
-    private int asteroidsDestroyed = 0;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
