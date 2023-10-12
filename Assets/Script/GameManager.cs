@@ -4,33 +4,47 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    public Image[] lifeImages; // Asigna las im�genes de vida desde el Inspector.
-    private int lives = 3; // Cantidad de vidas del jugador (puedes cambiar esto seg�n tu juego).
+    public Image[] lifeImages; // Asigna las imágenes de vida desde el Inspector.
+    private int lives = 3; // Cantidad de vidas del jugador.
 
-    // A�ade una referencia al Canvas que contiene las im�genes de vida.
+    // Añade una referencia al Canvas que contiene las imágenes de vida.
     public GameObject lifeCanvas;
-  
+    public scoreManager scoreManager; // Asegúrate de asignar esta variable en el Inspector.
+
+    public int scoreToWin = 2000; // Puntaje necesario para ganar
 
     private void Start()
     {
-        // Puedes encontrar el Canvas por su nombre o etiqueta, dependiendo de tu configuraci�n.
+        // Puedes encontrar el Canvas por su nombre o etiqueta, dependiendo de tu configuración.
         lifeCanvas = GameObject.Find("LifeCanvas");
 
-        // Luego, puedes obtener las im�genes de vida desde el Canvas.
+        // Luego, puedes obtener las imágenes de vida desde el Canvas.
         lifeImages = lifeCanvas.GetComponentsInChildren<Image>();
     }
 
-    // M�todo para actualizar las im�genes de vida en el Canvas.
+    private void Update()
+    {
+        int currentScore = scoreManager.score; // Obtiene el puntaje actual desde el script de administración de puntuación.
+
+        // Verifica si el jugador ha alcanzado el puntaje necesario para ganar.
+        if (currentScore >= scoreToWin)
+        {
+            // Cambia a la escena de victoria.
+            SceneManager.LoadScene("WinScene");
+        }
+    }
+
+    // Método para actualizar las imágenes de vida en el Canvas.
     void UpdateLifeImages()
     {
         for (int i = 0; i < lifeImages.Length; i++)
         {
-            // Activa o desactiva las im�genes de vida seg�n la cantidad actual de vidas.
+            // Activa o desactiva las imágenes de vida según la cantidad actual de vidas.
             lifeImages[i].gameObject.SetActive(i < lives);
         }
     }
 
-    // M�todo para reducir una vida cuando el jugador colisiona con un enemigo, por ejemplo.
+    // Método para reducir una vida cuando el jugador colisiona con un enemigo.
     public void ReduceLife()
     {
         if (lives > 0)
@@ -46,7 +60,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    // M�todo para aumentar una vida cuando el jugador recoge un power-up, por ejemplo.
+    // Método para aumentar una vida cuando el jugador recoge un power-up, por ejemplo.
     public void IncreaseLife()
     {
         if (lives < lifeImages.Length)
@@ -55,6 +69,4 @@ public class GameManager : MonoBehaviour
             UpdateLifeImages();
         }
     }
-
- 
 }

@@ -20,14 +20,6 @@ public class AsteroidCollisionTracker : MonoBehaviour
             {
                 scoreManager.score += 20; // Suma 10 puntos por cada asteroide destruido
             }
-
-            // Verifica si se han destruido suficientes asteroides para ganar.
-            if (asteroidsDestroyed >= asteroidSpawner.asteroidsNeededToWin)
-            {            
-                scoreManager.Instance.SaveScore();
-                // El jugador ha ganado, carga la escena de victoria.
-                SceneManager.LoadScene("WinScene");
-            }
         }
     }
 }
