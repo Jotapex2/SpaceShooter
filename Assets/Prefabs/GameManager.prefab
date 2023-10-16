@@ -49,4 +49,5 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   lifeCanvas: {fileID: 0}
-  asteroidsNeededToWin: 30
+  scoreManager: {fileID: 0}
+  scoreToWin: 2000

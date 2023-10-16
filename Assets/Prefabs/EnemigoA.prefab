@@ -137,6 +137,7 @@ MonoBehaviour:
   firePoint: {fileID: 4789328880246815453}
   explosionParticles: {fileID: 2414505808664353549, guid: f57ffbc4fa4f4f3469dbfb2dfb89c693, type: 3}
   explosionSound: {fileID: 8300000, guid: feb28799d75df0149a69665ff26e23a4, type: 3}
+  invisibilityDuration: 3
 --- !u!50 &168344568843299103
 Rigidbody2D:
   serializedVersion: 4
