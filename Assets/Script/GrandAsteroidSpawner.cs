@@ -25,7 +25,7 @@ public class GrandAsteroidSpawner : MonoBehaviour
             // Agrega un componente personalizado para rastrear las colisiones con las balas.
             AsteroidCollisionTracker tracker1 = Grandasteroid1.AddComponent<AsteroidCollisionTracker>();
 
-            //tracker1.GrandasteroidSpawner = this; // Asigna una referencia al spawner
+           
             // Espera el intervalo de spawn.
             yield return new WaitForSeconds(spawnInterval);
         }

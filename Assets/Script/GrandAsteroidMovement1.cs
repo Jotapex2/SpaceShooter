@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GrandAsteroidMovement1 : MonoBehaviour
 {
-    public ParticleSystem explosionParticles; // Referencia al sistema de part�culas de explosi�n
+    public ParticleSystem explosionParticles; // Referencia al sistema de partículas de explosi�n
     public AudioClip explosionSound; // Opcional: sonido de explosi�n
     public GameObject asteroidPrefab; // Prefab del asteroide 
     private float speed; // Velocidad de descenso del asteroide

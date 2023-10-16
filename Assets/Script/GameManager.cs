@@ -9,16 +9,15 @@ public class GameManager : MonoBehaviour
 
     // Añade una referencia al Canvas que contiene las imágenes de vida.
     public GameObject lifeCanvas;
-    public scoreManager scoreManager; // Asegúrate de asignar esta variable en el Inspector.
+    public scoreManager scoreManager; //Score
 
     public int scoreToWin = 2000; // Puntaje necesario para ganar
 
     private void Start()
     {
-        // Puedes encontrar el Canvas por su nombre o etiqueta, dependiendo de tu configuración.
+     
         lifeCanvas = GameObject.Find("LifeCanvas");
 
-        // Luego, puedes obtener las imágenes de vida desde el Canvas.
         lifeImages = lifeCanvas.GetComponentsInChildren<Image>();
     }
 

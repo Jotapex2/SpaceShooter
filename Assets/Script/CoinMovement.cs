@@ -7,7 +7,7 @@ public class CoinMovement : MonoBehaviour
 {
     private float speed; // Velocidad de movimiento de la moneda
     private bool collected = false; // Variable para evitar la recolecci�n m�ltiple
-    public AudioClip explosionSound; // Opcional: sonido de explosi�n
+    public AudioClip explosionSound; // Sonido de explosión
 
     public ParticleSystem explosionParticles; // Referencia al sistema de part�culas de explosi�n
 

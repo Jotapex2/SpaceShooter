@@ -5,7 +5,7 @@ using UnityEngine;
 public class AsteroidMovement : MonoBehaviour
 {
     public ParticleSystem explosionParticles; // Referencia al sistema de part�culas de explosi�n
-    public AudioClip explosionSound; // Opcional: sonido de explosi�n
+    public AudioClip explosionSound; // Sonido de explosi�n
 
     private float speed; // Velocidad de descenso del asteroide
 

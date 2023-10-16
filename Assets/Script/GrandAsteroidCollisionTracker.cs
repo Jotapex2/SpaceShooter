@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class GrandAsteroidCollisionTracker : MonoBehaviour
 {
     public AsteroidSpawner asteroidSpawner;
-    public scoreManager scoreManager; // Aseg�rate de que la variable tenga el mismo nombre (may�sculas y min�sculas) que el script ScoreManager
+    public scoreManager scoreManager; 
     public GameObject asteroidPrefab; // Prefab del asteroide 
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -15,7 +15,7 @@ public class GrandAsteroidCollisionTracker : MonoBehaviour
         {
             // Cuando una bala colisiona con el asteroide, destruye el asteroide y aumenta el contador de asteroides destruidos.
             Destroy(gameObject);
-            // Instancia dos nuevos asteroides
+            // Instancia de un nuevo asteroide
             for (int i = 0; i < 2; i++)
             {
                 Instantiate(asteroidPrefab, transform.position, Quaternion.identity);

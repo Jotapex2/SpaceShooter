@@ -4,7 +4,7 @@ using UnityEngine;
 public class AsteroidCollisionTracker : MonoBehaviour
 {
     public AsteroidSpawner asteroidSpawner;
-    public scoreManager scoreManager; // Aseg�rate de que la variable tenga el mismo nombre (may�sculas y min�sculas) que el script ScoreManager
+    public scoreManager scoreManager; 
 
     private int asteroidsDestroyed = 0;
 
@@ -18,7 +18,7 @@ public class AsteroidCollisionTracker : MonoBehaviour
 
             if (scoreManager != null)
             {
-                scoreManager.score += 20; // Suma 10 puntos por cada asteroide destruido
+                scoreManager.score += 20; // Suma 20 puntos por cada asteroide destruido
             }
         }
     }
